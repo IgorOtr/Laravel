@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('postblog', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('post_title', 255);
-            $table->string('post_content', 255);
-            $table->string('post_img', 255);
-            $table->string('post_status',2);
+            $table->string('post_title');
+            $table->string('post_content');
+            $table->enum('post_status', ['a','b']);
+            $table->string('post_image');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postblog');
+        Schema::dropIfExists('posts');
     }
 };

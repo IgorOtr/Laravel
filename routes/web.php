@@ -2,15 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PostController;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::get('/home', [MainController::class, 'index'])->name('home.index');
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('/home', [PostController::class, 'index'])->name('home.index');
+Route::get('/admin/post/create', [PostController::class, 'create'])->name('post.create');
+Route::post('/home', [PostController::class, 'store'])->name('home.store');
 
 // Route::get('/contact', [MainController::class, 'renderContact']);
