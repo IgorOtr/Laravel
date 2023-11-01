@@ -42,6 +42,8 @@ class PostController extends Controller
         $data['status'] = 'a';
         $data['post_image'] = 'cassiopalmeirense.jpg';
 
-        $post = $post->create($data);
+        $post->create($data);
+
+        return redirect()->route('home.index');
     }
 }
