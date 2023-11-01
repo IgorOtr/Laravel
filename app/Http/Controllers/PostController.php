@@ -23,10 +23,18 @@ class PostController extends Controller
         return view('home', compact('posts'));
     }
 
+
+
+    /**
+     * Método responsável por retornar a renderização da view para criar um post
+     *
+     * @return void
+     */
     public function create()
     {
         return view('admin/post/create');
     }
+
 
 
     /**
@@ -40,10 +48,31 @@ class PostController extends Controller
 
         $data = $request->all();
         $data['status'] = 'a';
+        $data['post_author'] = 'Igor Otero Muniz';
         $data['post_image'] = 'cassiopalmeirense.jpg';
 
         $post->create($data);
 
         return redirect()->route('home.index');
+    }
+
+
+
+    /**
+     * Método para retornar os dados do banco que tenham
+     * o ID igual ao ID passado na URL (SELECT)
+     *
+     * @param string|integer $id
+     * @return void
+     */
+    public function show(string|int $id)
+    {
+        $details = Post::find($id);
+
+        if(!$details){
+            return back();
+        }
+
+        dd($details);
     }
 }

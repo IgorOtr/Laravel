@@ -13,6 +13,7 @@ class Post extends Model
         'post_title',
         'post_content',
         'post_status',
-        'post_image'
+        'post_image',
+        'post_author'
     ];
 }

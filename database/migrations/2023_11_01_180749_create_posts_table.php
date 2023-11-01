@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('post_content');
             $table->enum('post_status', ['a','b']);
             $table->string('post_image');
+            $table->string('post_author');
             $table->timestamps();
         });
     }
