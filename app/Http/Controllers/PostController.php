@@ -75,4 +75,9 @@ class PostController extends Controller
 
         dd($details);
     }
+
+    public function redirectToHome()
+    {
+        return redirect()->route('home.index');
+    }
 }
